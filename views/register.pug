@@ -1,0 +1,31 @@
+extends layout
+block header
+    link(rel='stylesheet', href='/stylesheets/register.css')
+    script(src='//peterolson.github.com/BigInteger.js/BigInteger.min.js')
+    script(src='/javascripts/sha256.js')
+    script(src='/javascripts/common.js')
+    script(src='/javascripts/test.js')
+block content
+    .container
+        .row
+            .col-lg-10.col-xl-9.mx-auto
+                .card.card-signin.flex-row.my-5
+                    .card-img-left.d-none.d-md-flex
+                        // Background image for card set in CSS!
+                    .card-body
+                        h5.card-title.text-center Register
+                        form.form-signin(action='POST')
+                            .form-label-group
+                                input#inputUserame.form-control(name='username', type='text', placeholder='Username', required='', autofocus='')
+                                label(for='inputUserame') Username
+                            hr
+                            .form-label-group
+                                input#inputPassword.form-control(name='password', type='password', placeholder='Password', required='')
+                                label(for='inputPassword') Password
+                            .form-label-group
+                                input#inputConfirmPassword.form-control(name='passwordConf', type='password', placeholder='Password', required='')
+                                label(for='inputConfirmPassword') Confirm password
+                            .form-label-group
+                                div#error
+                            button.btn.btn-lg.btn-primary.btn-block.text-uppercase(onclick='register();return false;') Register
+                            a.d-block.text-center.mt-2.small(href='/login') Sign In
